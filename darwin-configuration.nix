@@ -37,25 +37,7 @@
     name = "AndrePopovitch";
     home = "/Users/andrepopovitch";
   };
-  home-manager.users.AndrePopovitch = { pkgs, ... }: {
-    home.packages = with pkgs;
-      [ cowsay
-        fortune
-        vscode
-        lsd
-        nerdfonts
-      ];
-    programs.zsh = {
-      enable = true;
-      shellAliases = {
-        ls = "lsd";
-        update = "darwin-rebuild switch";
-      };
-    };
-    
-
-    nixpkgs.config.allowUnfree = true;
-  };
+  home-manager.users.AndrePopovitch = import ./home.nix;
 
   # Other settings
   nixpkgs.config.allowUnfree = true;

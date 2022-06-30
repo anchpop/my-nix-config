@@ -6,6 +6,8 @@
         lsd
         nerdfonts
         starship
+        cargo
+        bat
     ];
     programs.starship = {
       enable = true;
@@ -25,6 +27,7 @@
       enable = true;
       shellAliases = {
         ls = "lsd";
+        cat = "bat";
         update = "darwin-rebuild switch";
       };
     };

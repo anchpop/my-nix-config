@@ -1,13 +1,14 @@
 { pkgs, ... }: {
     home.packages = with pkgs;
-    [   cowsay
-        fortune
+    [   
         vscode
-        lsd
+        cargo
+        
         nerdfonts
         starship
-        cargo
+
         bat
+        lsd
     ];
     programs.starship = {
       enable = true;

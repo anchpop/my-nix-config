@@ -9,6 +9,8 @@
 
         bat
         lsd
+
+        obsidian
     ];
     programs.starship = {
       enable = true;

@@ -19,6 +19,7 @@
         bat
         lsd
         ncdu
+        pandoc
 
         # Applications
         # ============

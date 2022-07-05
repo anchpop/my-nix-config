@@ -19,12 +19,14 @@
         bat
         lsd
         ncdu
-        pandoc
+        ripgrep
+        fd
 
         # Applications
         # ============
         obsidian
         element-desktop
+        pandoc
 
         # Misc
         # ====

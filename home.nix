@@ -1,16 +1,32 @@
 { pkgs, ... }: {
     home.packages = with pkgs;
     [   
+        # Dev tools
+        # =========
         vscode
-        cargo
-        
-        nerdfonts
-        starship
 
+        # Build systems
+        # =============
+        # Rust
+        cargo
+        # Js
+        nodejs
+        yarn
+
+        # Cli stuff
+        # ========
+        starship
         bat
         lsd
 
+        # Applications
+        # ============
         obsidian
+        element-desktop
+
+        # Misc
+        # ====
+        nerdfonts
     ];
     programs.starship = {
       enable = true;

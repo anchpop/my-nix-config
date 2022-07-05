@@ -21,6 +21,7 @@
         ncdu
         ripgrep
         fd
+        direnv
 
         # Applications
         # ============
@@ -31,6 +32,7 @@
         # Misc
         # ====
         nerdfonts
+        ipfs
     ];
     programs.starship = {
       enable = true;
@@ -53,6 +55,10 @@
         cat = "bat";
         refresh = "darwin-rebuild switch";
       };
+    };
+    programs.direnv = {
+      enable = true;
+      nix-direnv.enable = true;
     };
     
 

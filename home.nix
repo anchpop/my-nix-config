@@ -18,6 +18,7 @@
         starship
         bat
         lsd
+        ncdu
 
         # Applications
         # ============
@@ -47,7 +48,7 @@
       shellAliases = {
         ls = "lsd";
         cat = "bat";
-        update = "darwin-rebuild switch";
+        refresh = "darwin-rebuild switch";
       };
     };
     

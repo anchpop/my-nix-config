@@ -8,7 +8,7 @@
         # Build systems
         # =============
         # Rust
-        cargo
+        rustup
         # Js
         nodejs
         yarn
@@ -22,17 +22,20 @@
         ripgrep
         fd
         direnv
+        nix-direnv
+        tealdeer
 
         # Applications
         # ============
         obsidian
         element-desktop
-        pandoc
+        gocryptfs
 
         # Misc
         # ====
         nerdfonts
         ipfs
+        pre-commit
     ];
     programs.starship = {
       enable = true;

@@ -12,6 +12,8 @@
         # Js
         nodejs
         yarn
+        # haskell
+        stack
 
         # Cli stuff
         # ========

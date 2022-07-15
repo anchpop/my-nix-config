@@ -63,6 +63,7 @@
 
         # git aliases
         gsync = "git-branchless sync";
+        gbinit = "git-branchless init";
         gs = "git-branchless wrap -- status";
         gp = "git-branchless wrap -- push";
         gpf = "git-branchless wrap -- push --force-with-lease";

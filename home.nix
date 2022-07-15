@@ -57,6 +57,15 @@
         ls = "lsd";
         cat = "bat";
         refresh = "darwin-rebuild switch";
+
+        # git-branchless
+        git = "git-branchless wrap --";
+
+        # git aliases
+        gsync = "git-branchless sync";
+        gs = "git-branchless wrap -- status";
+        gp = "git-branchless wrap -- push";
+        gpf = "git-branchless wrap -- push --force-with-lease";
       };
     };
     programs.direnv = {

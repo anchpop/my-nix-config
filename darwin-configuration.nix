@@ -6,6 +6,7 @@
   environment.systemPackages = with pkgs;
     [ vim
       gitAndTools.gitFull
+      git-branchless
       git-lfs
       wget
       zsh

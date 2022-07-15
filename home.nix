@@ -67,6 +67,9 @@
         gs = "git-branchless wrap -- status";
         gp = "git-branchless wrap -- push";
         gpf = "git-branchless wrap -- push --force-with-lease";
+        glog = "git sl";
+        gamend = "git amend";
+        greword = "git reword";
       };
     };
     programs.direnv = {

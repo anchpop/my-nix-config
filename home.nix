@@ -17,6 +17,7 @@
 
         # Cli stuff
         # ========
+        zsh-completions
         starship
         bat
         lsd
@@ -78,8 +79,7 @@
         clippy="cargo clippy --locked --all-features --tests --benches -- -D warnings -D clippy::all -D clippy::mem_forget -A clippy::redundant_closure -A clippy::too_many_arguments -C debug-assertions=off";
       };
       initExtra = 
-        "PATH=$HOME/.cargo/bin:$PATH
-        autoload -Uz compinit && compinit";
+        "PATH=$HOME/.cargo/bin:$PATH";
     };
     programs.direnv = {
       enable = true;

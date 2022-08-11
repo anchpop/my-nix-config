@@ -17,6 +17,7 @@
     # Cli stuff
     # ========
     zsh-completions
+    zsh-autocomplete
     starship
     bat
     lsd
@@ -80,6 +81,8 @@
       clippy =
         "cargo clippy --locked --all-features --tests --benches -- -D warnings -D clippy::all -D clippy::mem_forget -A clippy::redundant_closure -A clippy::too_many_arguments -C debug-assertions=off";
     };
+    enableCompletion = true;
+    enableAutosuggestions = true;
     # initExtra = 
     #"source \"$HOME/.cargo/env\"";
   };

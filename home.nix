@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, lib, ... }: {
   home.packages = with pkgs; [
     # Dev tools
     # =========
@@ -6,13 +6,15 @@
 
     # Build systems
     # =============
+    # Rust
+    rustup
     # Js
     nodejs
     yarn
-    # haskell
-    stack
     # other
     zld
+    llvm
+    bazel-buildtools
 
     # Cli stuff
     # ========
@@ -28,6 +30,7 @@
     nix-direnv
     tealdeer
     asciinema
+    broot
 
     # Applications
     # ============
@@ -36,6 +39,7 @@
     gocryptfs
     postman
     youtube-dl
+    ffmpeg
 
     # Misc
     # ====
@@ -43,6 +47,7 @@
     ipfs
     pre-commit
     nixfmt
+    openssl
   ];
   programs.starship = {
     enable = true;
@@ -83,8 +88,9 @@
     };
     enableCompletion = true;
     enableAutosuggestions = true;
-    # initExtra = 
-    #"source \"$HOME/.cargo/env\"";
+    initExtra = builtins.concatStringsSep ("\n")
+      [ "source /Users/andrepopovitch/.ghcup/env"
+        "export PATH=$HOME/.cargo/bin:$PATH" ];
   };
   programs.direnv = {
     enable = true;

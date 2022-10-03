@@ -43,7 +43,6 @@
 
     # Misc
     # ====
-    nerdfonts
     ipfs
     pre-commit
     nixfmt
@@ -81,6 +80,7 @@
       gsl = "git sl";
       gamend = "git-branchless amend";
       greword = "git-branchless reword";
+      gswitch = "git-branchless wrap -- switch"
 
       # Rust
       clippy =
@@ -88,9 +88,10 @@
     };
     enableCompletion = true;
     enableAutosuggestions = true;
-    initExtra = builtins.concatStringsSep ("\n")
-      [ "source /Users/andrepopovitch/.ghcup/env"
-        "export PATH=$HOME/.cargo/bin:$PATH" ];
+    initExtra = builtins.concatStringsSep ("\n") [
+      "source /Users/andrepopovitch/.ghcup/env"
+      "export PATH=$HOME/.cargo/bin:$PATH"
+    ];
   };
   programs.direnv = {
     enable = true;

@@ -71,7 +71,7 @@
 
       # Git aliases
       # Standard git
-      gs = "git-branchless wrap -- status";
+      gstat = "git-branchless wrap -- status";
       gp = "git-branchless wrap -- push";
       gpf = "git-branchless wrap -- push --force-with-lease";
       # Git-branchless
@@ -80,7 +80,7 @@
       gsl = "git sl";
       gamend = "git-branchless amend";
       greword = "git-branchless reword";
-      gswitch = "git-branchless wrap -- switch";
+      gs = "git-branchless wrap -- switch";
 
       # Rust
       clippy =

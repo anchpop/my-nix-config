@@ -80,7 +80,7 @@
       gsl = "git sl";
       gamend = "git-branchless amend";
       greword = "git-branchless reword";
-      gswitch = "git-branchless wrap -- switch"
+      gswitch = "git-branchless wrap -- switch";
 
       # Rust
       clippy =

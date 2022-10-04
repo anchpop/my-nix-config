@@ -81,6 +81,7 @@
       gamend = "git-branchless amend";
       greword = "git-branchless reword";
       gs = "git-branchless wrap -- switch";
+      gdp = "git difftool HEAD~1";
 
       # Rust
       clippy =

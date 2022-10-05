@@ -15,6 +15,7 @@
     zld
     llvm
     bazel-buildtools
+    bazelisk
 
     # Cli stuff
     # ========

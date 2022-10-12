@@ -48,6 +48,7 @@
     pre-commit
     nixfmt
     openssl
+    pkg-config
   ];
   programs.starship = {
     enable = true;
@@ -79,7 +80,7 @@
       gsync = "git-branchless sync";
       gbinit = "git-branchless init";
       gsl = "git sl";
-      gamend = "git-branchless amend";
+      gamend = "git-branchless amend -m";
       greword = "git-branchless reword";
       gs = "git-branchless wrap -- switch";
       gdp = "git difftool HEAD~1";
@@ -90,10 +91,11 @@
     };
     enableCompletion = true;
     enableAutosuggestions = true;
-    initExtra = builtins.concatStringsSep ("\n") [
-      "source /Users/andrepopovitch/.ghcup/env"
-      "export PATH=$HOME/.cargo/bin:$PATH"
-    ];
+    initExtra = ''
+      source /Users/andrepopovitch/.ghcup/env
+      export PATH=$HOME/.cargo/bin:/opt/homebrew/bin:$PATH
+      export OPENSSL_DIR=${pkgs.openssl.dev}
+    '';
   };
   programs.direnv = {
     enable = true;

@@ -16,6 +16,8 @@
     llvm
     bazel-buildtools
     bazelisk
+    protobuf
+    shellcheck
 
     # Cli stuff
     # ========
@@ -32,6 +34,7 @@
     tealdeer
     asciinema
     broot
+    jq
 
     # Applications
     # ============
@@ -49,6 +52,7 @@
     nixfmt
     openssl
     pkg-config
+    gnupg
   ];
   programs.starship = {
     enable = true;
@@ -94,7 +98,6 @@
     initExtra = ''
       source /Users/andrepopovitch/.ghcup/env
       export PATH=$HOME/.cargo/bin:/opt/homebrew/bin:$PATH
-      export OPENSSL_DIR=${pkgs.openssl.dev}
     '';
   };
   programs.direnv = {

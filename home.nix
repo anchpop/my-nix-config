@@ -1,9 +1,5 @@
 { pkgs, lib, ... }: {
   home.packages = with pkgs; [
-    # Dev tools
-    # =========
-    vscode
-
     # Build systems
     # =============
     # Rust
@@ -18,6 +14,7 @@
     bazelisk
     protobuf
     shellcheck
+    podman
 
     # Cli stuff
     # ========
@@ -42,7 +39,6 @@
     element-desktop
     gocryptfs
     postman
-    youtube-dl
     ffmpeg
 
     # Misc
@@ -53,6 +49,7 @@
     openssl
     pkg-config
     gnupg
+    coreutils-full
   ];
   programs.starship = {
     enable = true;
@@ -92,12 +89,35 @@
       # Rust
       clippy =
         "cargo clippy --locked --all-features --tests --benches -- -D warnings -D clippy::all -D clippy::mem_forget -A clippy::redundant_closure -A clippy::too_many_arguments -C debug-assertions=off";
+
+      bazel = "bazelisk";
     };
     enableCompletion = true;
     enableAutosuggestions = true;
     initExtra = ''
-      source /Users/andrepopovitch/.ghcup/env
+      source $HOME/.ghcup/env
       export PATH=$HOME/.cargo/bin:/opt/homebrew/bin:$PATH
+
+      protogen() {
+        (
+          set -x
+          # Gets the absolute path of the current directory
+          CURRENT_DIR=$(pwd)
+
+          # Checks if the current directory starts with the base path
+          if [[ $CURRENT_DIR == $HOME/*/ic/rs* ]]; then
+              # If so, extracts the relative path after the base path
+              RELATIVE_DIR=''${CURRENT_DIR#$HOME/*/ic/rs/}
+
+              # Runs the Bazel command with the relative path
+              bazelisk run //rs/$RELATIVE_DIR/protobuf_generator:protobuf_generator --config=local
+          else
+              echo "Error: must be in a directory under $HOME/*/ic/rs"
+          fi
+        )
+      }
+
+      eval "$(zoxide init --cmd cd zsh)"
     '';
   };
   programs.direnv = {

@@ -117,6 +117,29 @@
         )
       }
 
+      gpfall() {
+        (
+          set -x
+          local current_branch=$(git rev-parse --abbrev-ref HEAD)
+          local branches=$(git for-each-ref --format='%(refname:short)' refs/heads/@anchpop 2>/dev/null)
+          
+          if [[ -z "$branches" ]]; then
+            echo "No branches found starting with '@anchpop'"
+            return 1
+          fi
+          
+          echo "$branches" | while read -r branch; do
+            echo "Force pushing branch: $branch"
+            git push origin "$branch" --force-with-lease
+          done
+          
+          git checkout "$current_branch"
+          echo "Returned to branch: $current_branch"
+        )
+      }
+
+      source "$HOME/Library/Application Support/org.dfinity.dfx/env"
+
       eval "$(zoxide init --cmd cd zsh)"
     '';
   };
